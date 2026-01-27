@@ -576,3 +576,22 @@ span {
         /* Show menu icon on small screens */
     }
 }
+/* Custom style for legal links in portfolio cards */
+.legal-links a {
+    display: inline-block !important;
+    padding: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
+    transition: 0.3s ease;
+    text-transform: capitalize;
+}
+
+.legal-links a:hover {
+    color: var(--main-color) !important;
+    border-bottom-color: var(--main-color) !important;
+}
+
+/* Adjust the existing portfolio layer to handle more text */
+.portfolio-box .portfolio-layer {
+    padding: 0 2rem; /* Give more horizontal space */
+}
