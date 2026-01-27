@@ -4,12 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Ankit Parmar | Android Developer Portfolio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
+    
+    <style>
+        /* Styling for the Experience section to match your theme */
+        .experience { background: var(--second-bg-color); }
+        .experience-container { display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto; padding: 2rem; }
+        .experience-box { border-left: 3px solid var(--main-color); padding-left: 20px; margin-bottom: 20px; }
+        .experience-box h3 { font-size: 2rem; color: #fff; }
+        .experience-box h4 { font-size: 1.5rem; color: var(--main-color); margin: 5px 0; }
+        .experience-box ul { list-style: none; margin-top: 10px; }
+        .experience-box ul li { font-size: 1.4rem; color: #fff; margin-bottom: 8px; line-height: 1.6; }
+        .experience-box ul li::before { content: '▹'; color: var(--main-color); margin-right: 10px; }
+    </style>
 </head>
 
 <body>
@@ -20,7 +32,7 @@
         <nav class="navbar" role="navigation">
             <a href="#home" class="menu action" id="active">Home</a>
             <a href="#about" class="menu">About</a>
-            <a href="#service" class="menu">Service</a>
+            <a href="#experience" class="menu">Experience</a>
             <a href="#portfolio" class="menu">Projects</a>
             <a href="#contact" class="menu">Contact</a>
         </nav>
@@ -29,69 +41,79 @@
     <!-- home section -->
     <section class="home" id="home">
         <div class="home-content">
-            <h3>Hi, Myself</h3>
+            <h3>Hello, I'm</h3>
             <h1>Ankit Parmar</h1>
-            <h3>And I'm a <span id="multy-text"></span></h3>
-            <p>Recent computer science graduate with a strong foundation in Java programming and web development. Eager to contribute to innovative projects and learn from experienced teams.</p>
+            <h3>And I'm a  <span id="multy-text"></span></h3>
+            <p>Android Developer at Vasundhara Infotech with a passion for building high-performance mobile applications. Specialized in creating seamless user flows and implementing advanced monetization strategies.</p>
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/ankitparmar2312/" target="_blank" aria-label="LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/theankitparmar" target="_blank" aria-label="GitHub Profile">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.instagram.com/its_parmar_056/" target="_blank" aria-label="Instagram Profile">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.freelancer.in/u/Ankitp2312" target="_blank" aria-label="Freelancer Profile">
-                    <i class="fa-solid fa-briefcase"></i>
-                </a>
-                <a href="https://discord.com/Dev.ankit23" target="_blank" aria-label="Discord Profile">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
+                <a href="https://www.linkedin.com/in/ankitparmar2312/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/theankitparmar" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/its_parmar_056/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.freelancer.in/u/Ankitp2312" target="_blank"><i class="fa-solid fa-briefcase"></i></a>
+                <a href="https://discord.com/Dev.ankit23" target="_blank"><i class="fa-brands fa-discord"></i></a>
             </div>
-
-            <a href="https://drive.google.com/file/d/1Hdqqg0jwpwNwBQHYayo2Ni_vEHgL6Dd7/view?usd=drivesdk" class="btn" aria-label="Download CV">Download CV</a>
+            <a href="https://drive.google.com/file/d/1Hdqqg0jwpwNwBQHYayo2Ni_vEHgL6Dd7/view?usd=drivesdk" class="btn">Download CV</a>
         </div>
         <div class="home-img">
-            <img src="./img/ap.png" alt="Profile image of Ankit Parmar">
+            <img src="./img/ap.png" alt="Ankit Parmar">
         </div>
     </section>
 
     <!-- About section -->
     <section class="about" id="about">
         <div class="about-img">
-            <img src="img/ap.png" alt="Ankit Parmar Profile Image">
+            <img src="img/ap.png" alt="About Ankit">
         </div>
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
-            <h3>Software Developer</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <a href="#" class="btn">Read More</a>
+            <h3>Android Developer</h3>
+            <p>I am a dedicated Android Developer focusing on Java and Kotlin. My expertise lies in managing the full app development lifecycle—from architecting complex logic to integrating revenue-generating Ad SDKs. With a CGPA of 7.3 from Kamani Science College, I combine academic logic with professional execution to deliver production-grade mobile solutions.</p>
+            <a href="#contact" class="btn">Let's Talk</a>
         </div>
     </section>
 
-    <!-- Service section -->
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <h2 class="heading">Professional <span>Experience</span></h2>
+        <div class="experience-container">
+            <div class="experience-box">
+                <h3>Android Developer</h3>
+                <h4>Vasundhara Infotech, Surat | 2024 - Present</h4>
+                <ul>
+                    <li>Architected and implemented complex user flows and core functionalities for multiple production-grade applications, ensuring high performance and scalability.</li>
+                    <li>Expertly integrated various Ad SDKs and handled mediation to optimize ad revenue while maintaining a smooth, high-quality Material Design user interface.</li>
+                    <li>Leading the development and optimization of multiple high-traffic applications.</li>
+                </ul>
+            </div>
+            <div class="experience-box">
+                <h3>Android Developer Intern</h3>
+                <h4>Artbeen Solution | 4 Months</h4>
+                <ul>
+                    <li>Focused on XML UI design, JSON parsing, and local data management using SQLite.</li>
+                    <li>Gained hands-on experience in Firebase integration and REST API consumption.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service/Skills section -->
     <section class="service" id="service">
-        <h2 class="heading">My <span>Services</span></h2>
+        <h2 class="heading">Technical <span>Stack</span></h2>
         <div class="service-container">
             <div class="service-box">
-                <i class="fa-solid fa-code"></i>
-                <h3>Web Developer</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="service-box">
-                <i class="fa-solid fa-palette"></i>
-                <h3>UI/UX Developer</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="service-box">
                 <i class="fa-brands fa-android"></i>
-                <h3>App Developer</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                <a href="#" class="btn">Read More</a>
+                <h3>App Development</h3>
+                <p>Native development using Java & Kotlin in Android Studio. Handling full app lifecycle.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Core Logic</h3>
+                <p>Expertise in API Integration (REST), JSON Parsing, and Local Databases (SQLite/Room).</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Monetization</h3>
+                <p>Advanced integration of AdMob and Facebook Audience Network with Mediation.</p>
             </div>
         </div>
     </section>
@@ -101,26 +123,26 @@
         <h2 class="heading">Latest <span>Projects</span></h2>
         <div class="portfolio-container">
             <div class="portfolio-box">
-                <img src="img/p1.jpg" alt="HR Handicraft project">
+                <img src="img/p1.jpg" alt="HR Handicraft">
                 <div class="portfolio-layer">
                     <h4>HR Handicraft</h4>
-                    <p>The objective of this system is to create an online Handicraft selling platform.</p>
+                    <p>Professional E-commerce app featuring complex product flows and Firebase.</p>
                     <i class="fa-solid fa-share-from-square"></i>
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/p2.jpg" alt="KSC E-Shop project">
+                <img src="img/p2.jpg" alt="KSC E-Shop">
                 <div class="portfolio-layer">
                     <h4>KSC E-Shop</h4>
-                    <p>The goal of this project is to create a versatile online store for customers to shop conveniently.</p>
+                    <p>A full-featured shopping application integrated with REST APIs.</p>
                     <i class="fa-solid fa-share-from-square"></i>
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/p3.png" alt="Kic Tac Toe game project">
+                <img src="img/p3.png" alt="Tic Tac Toe">
                 <div class="portfolio-layer">
                     <h4>Kic Tac Toe</h4>
-                    <p>This project implements a Tic Tac Toe game with win/draw condition checks and a simple UI.</p>
+                    <p>Logic-based game demonstrating custom UI and state management.</p>
                     <i class="fa-solid fa-share-from-square"></i>
                 </div>
             </div>
@@ -130,18 +152,16 @@
     <!-- Contact section -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-
-        <form action="#" autocomplete="off" aria-labelledby="contact-form">
+        <form action="#">
             <div class="input-box">
                 <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email Address" required>
             </div>
-
             <div class="input-box">
                 <input type="number" placeholder="Mobile Number" required>
                 <input type="text" placeholder="Subject" required>
             </div>
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Your message" required></textarea>
+            <textarea name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
             <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
@@ -149,21 +169,19 @@
     <!-- Footer section -->
     <div class="footer">
         <div class="footer-text">
-            <p>Copyright &copy; 2024 by @Dev-Ankit || All Rights Reserved</p>
+            <p>Copyright &copy; 2024 by @AnkitParmar | Junior Android Developer</p>
         </div>
         <div class="footer-iconTop">
             <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
         </div>
     </div>
 
-    <!-- SCROLL REVEAL JS -->
+    <!-- Scripts -->
     <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- Typed.js Library -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#multy-text', {
-            strings: ['Software Developer.', 'Web Developer.', 'App Developer'],
+            strings: ['Android Developer.', 'Kotlin/Java Expert.', 'UI/UX Specialist.'],
             typeSpeed: 50,
             backSpeed: 50,
             backDelay: 1000,
@@ -177,12 +195,9 @@
         });
 
         ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-        ScrollReveal().reveal('.home-img, .service-container, .portfolio-box, .contact form', { origin: 'bottom' });
+        ScrollReveal().reveal('.home-img, .service-container, .portfolio-box, .contact form, .experience-box', { origin: 'bottom' });
         ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
         ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
     </script>
-
-    <!-- MAIN JS -->
-    <script src="js/main.js"></script>
 </body>
 </html>
