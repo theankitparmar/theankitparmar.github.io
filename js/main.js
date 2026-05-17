@@ -1,21 +1,15 @@
-<<<<<<< HEAD
 /**
  * ========================================
- * Portfolio Website - JavaScript Fixed
+ * Portfolio Website - JavaScript
+ * Main functionality with form handling
  * ========================================
- * BUGS FIXED:
- * 1. ✅ scrollX → scrollY (CRITICAL: Line 16 in original)
- * 2. ✅ .home-contect → .home-content
- * 3. ✅ .services-container → .service-container
- * 4. ✅ .contect → .contact
- * 5. ✅ origin: 'buttom' → origin: 'bottom'
- * 6. ✅ Improved event handling
- * 7. ✅ Added menu close functionality
  */
 
 //* ================== Toggle Menu Icon & Navbar ================== *//
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+const header = document.querySelector('header');
+const navLinks = document.querySelectorAll('header nav a');
 
 if (menuIcon && navbar) {
     menuIcon.addEventListener('click', function(e) {
@@ -25,7 +19,7 @@ if (menuIcon && navbar) {
     });
 
     // Close menu when a navigation link is clicked
-    document.querySelectorAll('.navbar a').forEach(link => {
+    navLinks.forEach(link => {
         link.addEventListener('click', function() {
             menuIcon.classList.remove('fa-xmark');
             navbar.classList.remove('active');
@@ -50,130 +44,30 @@ if (menuIcon && navbar) {
 }
 
 //* ================== Scroll Section Active Link Highlighting ================== *//
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section');
 
 window.addEventListener('scroll', function() {
+    let scrollY = window.scrollY;
+
     sections.forEach(sec => {
-        // ✅ CRITICAL FIX: Changed scrollX to scrollY
-        let top = window.scrollY;
         let offset = sec.offsetTop - 150;
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
-=======
-// DOM Elements
-const menuIcon = document.querySelector('#menu-icon');
-const navbar = document.querySelector('.navbar');
-const navLinks = document.querySelectorAll('.navbar a');
-const header = document.querySelector('.header');
 
-// Toggle mobile menu
-menuIcon.addEventListener('click', function() {
-    // Toggle menu icon between bars and X
-    this.classList.toggle('fa-bars');
-    this.classList.toggle('fa-xmark');
-    
-    // Toggle navbar visibility
-    navbar.classList.toggle('active');
-    
-    // Create or remove overlay
-    if (navbar.classList.contains('active')) {
-        createOverlay();
-    } else {
-        removeOverlay();
-    }
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = navbar.classList.contains('active') ? 'hidden' : '';
-});
-
-// Create overlay when menu is open
-function createOverlay() {
-    const overlay = document.createElement('div');
-    overlay.className = 'overlay active';
-    overlay.addEventListener('click', closeMobileMenu);
-    document.body.appendChild(overlay);
-}
-
-// Remove overlay when menu is closed
-function removeOverlay() {
-    const overlay = document.querySelector('.overlay');
-    if (overlay) {
-        overlay.remove();
-    }
-}
-
-// Close mobile menu function
-function closeMobileMenu() {
-    menuIcon.classList.remove('fa-xmark');
-    menuIcon.classList.add('fa-bars');
-    navbar.classList.remove('active');
-    removeOverlay();
-    document.body.style.overflow = '';
-}
->>>>>>> 416381b14ffcaeb1f6293fb48cc5b8a6d9ad4898
-
-// Close menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        closeMobileMenu();
-        
-        // Update active link
-        navLinks.forEach(item => item.classList.remove('active'));
-        link.classList.add('active');
-    });
-});
-
-// Close menu on window resize (if resized to desktop)
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        closeMobileMenu();
-    }
-});
-
-// Sticky header on scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        header.classList.add('sticky');
-    } else {
-        header.classList.remove('sticky');
-    }
-});
-
-// Active link on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const scrollPos = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        if (scrollY >= offset && scrollY < offset + height) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-<<<<<<< HEAD
             });
-            let activeLink = document.querySelector('header nav a[href*="' + id + '"]');
+            const activeLink = document.querySelector(`header nav a[href*="${id}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
             }
-=======
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
->>>>>>> 416381b14ffcaeb1f6293fb48cc5b8a6d9ad4898
         }
     });
-});
 
-<<<<<<< HEAD
-    //* ================== Sticky Navbar ================== *//
-    let header = document.querySelector('header');
+    // Sticky Header
     if (header) {
-        header.classList.toggle('sticky', window.scrollY > 100);
+        header.classList.toggle('sticky', scrollY > 100);
     }
 });
 
@@ -185,7 +79,6 @@ if (typeof ScrollReveal !== 'undefined') {
         delay: 200,
     });
 
-    // ✅ FIXED: All selector names corrected
     ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
     ScrollReveal().reveal('.home-img, .service-container, .portfolio-box, .contact form, .experience-box', { origin: 'bottom' });
     ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
@@ -194,7 +87,7 @@ if (typeof ScrollReveal !== 'undefined') {
 
 //* ================== Typed JS Text Animation ================== *//
 if (typeof Typed !== 'undefined') {
-    var typed = new Typed('#multy-text', {
+    const typed = new Typed('#multy-text', {
         strings: ['Android Developer.', 'Kotlin/Java Expert.', 'UI/UX Specialist.'],
         typeSpeed: 50,
         backSpeed: 50,
@@ -203,24 +96,108 @@ if (typeof Typed !== 'undefined') {
     });
 }
 
-console.log('✓ Portfolio JavaScript loaded successfully');
-=======
-// Close menu with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navbar.classList.contains('active')) {
-        closeMobileMenu();
+//* ================== Contact Form Handler ================== *//
+const contactForm = document.querySelector('#contact-form');
+const formStatus = document.querySelector('#form-status');
+const submitBtn = document.querySelector('#submit-btn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        // Let Formspree handle the submission by default
+        // But we can add client-side validation if needed
+        
+        const nameInput = contactForm.querySelector('input[name="name"]');
+        const emailInput = contactForm.querySelector('input[name="email"]');
+        const subjectInput = contactForm.querySelector('input[name="subject"]');
+        const messageInput = contactForm.querySelector('textarea[name="message"]');
+        
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!nameInput.value.trim()) {
+            e.preventDefault();
+            showFormStatus('Please enter your name', 'error');
+            return false;
+        }
+        
+        if (!emailRegex.test(emailInput.value)) {
+            e.preventDefault();
+            showFormStatus('Please enter a valid email address', 'error');
+            return false;
+        }
+        
+        if (!subjectInput.value.trim()) {
+            e.preventDefault();
+            showFormStatus('Please enter a subject', 'error');
+            return false;
+        }
+        
+        if (!messageInput.value.trim() || messageInput.value.trim().length < 10) {
+            e.preventDefault();
+            showFormStatus('Please enter a message (at least 10 characters)', 'error');
+            return false;
+        }
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.value = 'Sending...';
+        submitBtn.style.opacity = '0.7';
+    });
+    
+    // Listen for Formspree response
+    contactForm.addEventListener('submit', function() {
+        setTimeout(() => {
+            // Reset form after submission
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.value = 'Send Message';
+            submitBtn.style.opacity = '1';
+            showFormStatus('Message sent successfully! I\'ll get back to you soon.', 'success');
+        }, 2000);
+    });
+}
+
+// Function to show form status messages
+function showFormStatus(message, type) {
+    if (!formStatus) return;
+    
+    formStatus.textContent = message;
+    formStatus.style.display = 'block';
+    formStatus.style.marginTop = '1rem';
+    formStatus.style.padding = '1rem';
+    formStatus.style.borderRadius = '0.5rem';
+    formStatus.style.textAlign = 'center';
+    formStatus.style.fontSize = '1.4rem';
+    formStatus.style.fontWeight = '600';
+    
+    if (type === 'error') {
+        formStatus.style.backgroundColor = '#ff6b6b';
+        formStatus.style.color = '#fff';
+    } else if (type === 'success') {
+        formStatus.style.backgroundColor = '#51cf66';
+        formStatus.style.color = '#fff';
     }
+    
+    // Auto-hide success message after 5 seconds
+    if (type === 'success') {
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+        }, 5000);
+    }
+}
+
+//* ================== Smooth Scroll Enhancement ================== *//
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        const target = document.querySelector(href);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 });
 
-// Initialize active link on page load
-window.addEventListener('DOMContentLoaded', () => {
-    const currentHash = window.location.hash;
-    if (currentHash) {
-        const activeLink = document.querySelector(`.navbar a[href="${currentHash}"]`);
-        if (activeLink) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            activeLink.classList.add('active');
-        }
-    }
-});
->>>>>>> 416381b14ffcaeb1f6293fb48cc5b8a6d9ad4898
+console.log('✓ Portfolio JavaScript loaded successfully');

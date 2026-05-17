@@ -121,7 +121,7 @@
     <!-- About section -->
     <section class="about" id="about" aria-labelledby="about-heading">
         <div class="about-img">
-            <img src="img/ap.png" alt="Ankit Parmar - Android Developer">
+            <img src="img/ap.png" alt="Ankit Parmar - Android Developer" loading="lazy">
         </div>
         <div class="about-content">
             <h2 class="heading" id="about-heading">About <span>Me</span></h2>
@@ -198,7 +198,7 @@
                 </div> -->
 
             <div class="portfolio-box">
-                <img src="img/p1.jpg" alt="HR Handicraft">
+                <img src="img/p1.jpg" alt="HR Handicraft" loading="lazy">
                 <div class="portfolio-layer">
                     <h4>HR Handicraft</h4>
                     <p>Professional E-commerce app featuring complex product flows and Firebase.</p>
@@ -207,7 +207,7 @@
             </div>
 
             <div class="portfolio-box">
-                <img src="img/p2.jpg" alt="KSC E-Shop">
+                <img src="img/p2.jpg" alt="KSC E-Shop" loading="lazy">
                 <div class="portfolio-layer">
                     <h4>KSC E-Shop</h4>
                     <p>A full-featured shopping application integrated with REST APIs.</p>
@@ -216,7 +216,7 @@
             </div>
 
             <div class="portfolio-box">
-                <img src="img/p3.png" alt="Tic Tac Toe">
+                <img src="img/p3.png" alt="Tic Tac Toe" loading="lazy">
                 <div class="portfolio-layer">
                     <h4>Kic Tac Toe</h4>
                     <p>Logic-based game demonstrating custom UI and state management.</p>
@@ -227,19 +227,20 @@
     </section>
 
     <!-- Contact section -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="#">
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+        <h2 class="heading" id="contact-heading">Contact <span>Me</span></h2>
+        <form id="contact-form" method="POST" action="https://formspree.io/f/mvoeqqoq">
             <div class="input-box">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
+                <input type="text" name="name" placeholder="Full Name" required aria-label="Full Name">
+                <input type="email" name="email" placeholder="Email Address" required aria-label="Email Address">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number" required>
-                <input type="text" placeholder="Subject" required>
+                <input type="tel" name="phone" placeholder="Mobile Number" pattern="[0-9]{10}" aria-label="Mobile Number">
+                <input type="text" name="subject" placeholder="Subject" required aria-label="Subject">
             </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <textarea name="message" cols="30" rows="10" placeholder="Your message" required aria-label="Message"></textarea>
+            <div id="form-status" style="display:none;"></div>
+            <input type="submit" value="Send Message" class="btn" id="submit-btn">
         </form>
     </section>
 
@@ -253,39 +254,54 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-        var typed = new Typed('#multy-text', {
-            strings: ['Android Developer.', 'Kotlin/Java Expert.', 'UI/UX Specialist.'],
-            typeSpeed: 50,
-            backSpeed: 50,
-            backDelay: 1000,
-            loop: true,
+    <!-- Scripts - Deferred for better performance -->
+    <script src="./js/main.js" defer></script>
+    <script src="https://unpkg.com/scrollreveal" defer></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    
+    <!-- Performance-optimized initialization -->
+    <script defer>
+        // Initialize animations only after DOM is loaded
+        window.addEventListener('DOMContentLoaded', function() {
+            // Typed.js initialization
+            if (typeof Typed !== 'undefined') {
+                new Typed('#multy-text', {
+                    strings: ['Android Developer.', 'Kotlin/Java Expert.', 'UI/UX Specialist.'],
+                    typeSpeed: 50,
+                    backSpeed: 50,
+                    backDelay: 1000,
+                    loop: true,
+                });
+            }
+
+            // ScrollReveal initialization with optimized settings
+            if (typeof ScrollReveal !== 'undefined') {
+                const sr = ScrollReveal({
+                    distance: '60px',
+                    duration: 1200,
+                    delay: 150,
+                    easing: 'cubic-bezier(.25,.46,.45,.94)',
+                    reset: false,
+                    mobile: true,
+                    viewFactor: 0.2,
+                    scale: 0.97
+                });
+
+                sr.reveal('.heading, .home-content', { origin: 'top', interval: 100 });
+                sr.reveal('.home-img, .service-container, .portfolio-box, .contact form, .experience-box', { origin: 'bottom', interval: 100 });
+                sr.reveal('.home-content h1, .about-img', { origin: 'left', distance: '80px', interval: 80 });
+                sr.reveal('.home-content p, .about-content', { origin: 'right', distance: '80px', interval: 80 });
+            }
         });
 
-        ScrollReveal({
-            distance: '90px',
-            duration: 2000,
-            delay: 200,
-        });
-
-        const sr = ScrollReveal({
-            distance: '60px',
-            duration: 1200,
-            delay: 150,
-            easing: 'cubic-bezier(.25,.46,.45,.94)',
-            reset: false,
-            mobile: true,
-            viewFactor: 0.2,
-            scale: 0.97
-        });
-
-        sr.reveal('.heading, .home-content', { origin: 'top', interval: 100 });
-        sr.reveal('.home-img, .service-container, .portfolio-box, .contact form, .experience-box', { origin: 'bottom', interval: 100 });
-        sr.reveal('.home-content h1, .about-img', { origin: 'left', distance: '80px', interval: 80 });
-        sr.reveal('.home-content p, .about-content', { origin: 'right', distance: '80px', interval: 80 });
+        // Performance monitoring
+        if (window.performance && window.performance.timing) {
+            window.addEventListener('load', function() {
+                const perfData = window.performance.timing;
+                const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                console.log('⚡ Page Load Time:', pageLoadTime, 'ms');
+            });
+        }
     </script>
 </body>
 </html>
