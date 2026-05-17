@@ -4,6 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ankit Parmar - Android Developer. Specialized in Java, Kotlin, and Firebase integration. Explore my production-grade mobile apps and professional experience.">
+    <meta name="keywords" content="Android Developer, Kotlin, Java, Mobile Development, Firebase, AdMob, UI/UX">
+    <meta name="author" content="Ankit Parmar">
+    <meta name="theme-color" content="#59B2f4">
+    
+    <!-- Open Graph Tags (Social Sharing) -->
+    <meta property="og:title" content="Ankit Parmar | Android Developer Portfolio">
+    <meta property="og:description" content="Explore my Android development projects and professional experience. Specialized in Java, Kotlin, and advanced monetization strategies.">
+    <meta property="og:image" content="./img/ap.png">
+    <meta property="og:url" content="https://theankitparmar.github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ankit Parmar | Android Developer">
+    <meta name="twitter:description" content="Android Developer specializing in Java & Kotlin at Vasundhara Infotech">
+    <meta name="twitter:creator" content="@theankitparmar">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://theankitparmar.github.io">
+    
+    <!-- Preconnect to external resources for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <title>Ankit Parmar | Android Developer Portfolio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -13,7 +38,7 @@
     
     <style>
         /* Styling for the Experience section to match your theme */
-        .experience { background: var(--second-bg-color); }
+        .experience { background: var(--snd-bg-color); }
         .experience-container { display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto; padding: 2rem; }
         .experience-box { border-left: 3px solid var(--main-color); padding-left: 20px; margin-bottom: 20px; }
         .experience-box h3 { font-size: 2rem; color: #fff; }
@@ -22,19 +47,40 @@
         .experience-box ul li { font-size: 1.4rem; color: #fff; margin-bottom: 8px; line-height: 1.6; }
         .experience-box ul li::before { content: '▹'; color: var(--main-color); margin-right: 10px; }
     </style>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ankit Parmar",
+      "jobTitle": "Android Developer",
+      "image": "https://theankitparmar.github.io/img/ap.png",
+      "url": "https://theankitparmar.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/ankitparmar2312/",
+        "https://github.com/theankitparmar",
+        "https://www.instagram.com/its_parmar_056/"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Vasundhara Infotech"
+      }
+    }
+    </script>
 </head>
 
 <body>
     <header class="header">
-        <a href="index.html" class="logo">Portfolio</a>
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <a href="index.html" class="logo" aria-label="Ankit Parmar Portfolio Home">Portfolio</a>
+        <i class="fa-solid fa-bars" id="menu-icon" aria-label="Toggle navigation menu" role="button" tabindex="0"></i>
 
-        <nav class="navbar" role="navigation">
-            <a href="#home" class="menu action" id="active">Home</a>
-            <a href="#about" class="menu">About</a>
-            <a href="#experience" class="menu">Experience</a>
-            <a href="#portfolio" class="menu">Projects</a>
-            <a href="#contact" class="menu">Contact</a>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <a href="#home" class="menu active" id="active" aria-label="Home section">Home</a>
+            <a href="#about" class="menu" aria-label="About me section">About</a>
+            <a href="#experience" class="menu" aria-label="Professional experience section">Experience</a>
+            <a href="#portfolio" class="menu" aria-label="My projects portfolio">Projects</a>
+            <a href="#contact" class="menu" aria-label="Contact me section">Contact</a>
         </nav>
     </header>
 
@@ -46,26 +92,26 @@
             <h3>And I'm a  <span id="multy-text"></span></h3>
             <p>Android Developer at Vasundhara Infotech with a passion for building high-performance mobile applications. Specialized in creating seamless user flows and implementing advanced monetization strategies.</p>
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/ankitparmar2312/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/theankitparmar" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.instagram.com/its_parmar_056/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.freelancer.in/u/Ankitp2312" target="_blank"><i class="fa-solid fa-briefcase"></i></a>
-                <a href="https://discord.com/Dev.ankit23" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.linkedin.com/in/ankitparmar2312/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://github.com/theankitparmar" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/its_parmar_056/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.freelancer.in/u/Ankitp2312" target="_blank" rel="noopener noreferrer" aria-label="Freelancer profile"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></a>
+                <a href="https://discord.gg/Dev.ankit23" target="_blank" rel="noopener noreferrer" aria-label="Discord profile"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
             </div>
             <a href="https://drive.google.com/file/d/1Hdqqg0jwpwNwBQHYayo2Ni_vEHgL6Dd7/view?usd=drivesdk" class="btn">Download CV</a>
         </div>
         <div class="home-img">
-            <img src="./img/ap.png" alt="Ankit Parmar">
+            <img src="./img/ap.png" alt="Ankit Parmar - Professional Portrait">
         </div>
     </section>
 
     <!-- About section -->
-    <section class="about" id="about">
+    <section class="about" id="about" aria-labelledby="about-heading">
         <div class="about-img">
-            <img src="img/ap.png" alt="About Ankit">
+            <img src="img/ap.png" alt="Ankit Parmar - Android Developer">
         </div>
         <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
+            <h2 class="heading" id="about-heading">About <span>Me</span></h2>
             <h3>Android Developer</h3>
             <p>I am a dedicated Android Developer focusing on Java and Kotlin. My expertise lies in managing the full app development lifecycle—from architecting complex logic to integrating revenue-generating Ad SDKs. With a CGPA of 7.3 from Kamani Science College, I combine academic logic with professional execution to deliver production-grade mobile solutions.</p>
             <a href="#contact" class="btn">Let's Talk</a>
