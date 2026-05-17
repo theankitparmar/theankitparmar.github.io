@@ -37,15 +37,28 @@
     <link rel="stylesheet" href="./style.css">
     
     <style>
-        /* Styling for the Experience section to match your theme */
         .experience { background: var(--snd-bg-color); }
         .experience-container { display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto; padding: 2rem; }
         .experience-box { border-left: 3px solid var(--main-color); padding-left: 20px; margin-bottom: 20px; }
         .experience-box h3 { font-size: 2rem; color: #fff; }
         .experience-box h4 { font-size: 1.5rem; color: var(--main-color); margin: 5px 0; }
         .experience-box ul { list-style: none; margin-top: 10px; }
-        .experience-box ul li { font-size: 1.4rem; color: #fff; margin-bottom: 8px; line-height: 1.6; }
+        .experience-box ul li { font-size: 1.5rem; color: #fff; margin-bottom: 8px; line-height: 1.6; }
         .experience-box ul li::before { content: '▹'; color: var(--main-color); margin-right: 10px; }
+        
+        /* Styling for the legal links inside project cards */
+        .legal-links { display: flex; gap: 10px; margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
+        .legal-links a { 
+            width: auto !important; 
+            height: auto !important; 
+            background: transparent !important; 
+            font-size: 1.2rem !important; 
+            color: white !important; 
+            border-bottom: 1px solid white; 
+            border-radius: 0 !important;
+            padding: 2px 0 !important;
+        }
+        .legal-links a:hover { color: var(--main-color) !important; border-bottom-color: var(--main-color); }
     </style>
 
     <!-- Structured Data (JSON-LD) -->
@@ -89,7 +102,7 @@
         <div class="home-content">
             <h3>Hi, Myself</h3>
             <h1>Ankit Parmar</h1>
-            <h3>And I'm a  <span id="multy-text"></span></h3>
+            <h3>And I'm a <span id="multy-text"></span></h3>
             <p>Android Developer at Vasundhara Infotech with a passion for building high-performance mobile applications. Specialized in creating seamless user flows and implementing advanced monetization strategies.</p>
             <div class="social-media">
                 <a href="https://www.linkedin.com/in/ankitparmar2312/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
@@ -98,7 +111,7 @@
                 <a href="https://www.freelancer.in/u/Ankitp2312" target="_blank" rel="noopener noreferrer" aria-label="Freelancer profile"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></a>
                 <a href="https://discord.gg/Dev.ankit23" target="_blank" rel="noopener noreferrer" aria-label="Discord profile"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
             </div>
-            <a href="https://drive.google.com/file/d/1Hdqqg0jwpwNwBQHYayo2Ni_vEHgL6Dd7/view?usd=drivesdk" class="btn">Download CV</a>
+            <a href="https://drive.google.com/file/d/1N71j5iKVhWsAxBQpyw3Bgo7Kr64erWkR/view?usp=sharing" class="btn">Download CV</a>
         </div>
         <div class="home-img">
             <img src="./img/ap.png" alt="Ankit Parmar - Professional Portrait">
@@ -164,10 +177,26 @@
         </div>
     </section>
 
-    <!-- Portfolio section -->
+    <!-- Projects section -->
     <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Projects</span></h2>
+        <h2 class="heading">My <span>Projects</span></h2>
         <div class="portfolio-container">
+            
+            <!-- <!-- App 1: Quick Voice Recorder (With Legal Links) -->
+            <!-- <div class="portfolio-box">
+                <img src="img/p1.jpg" alt="Quick Voice Recorder">
+                <div class="portfolio-layer">
+                    <h4>Quick Voice Recorder</h4>
+                    <p>A lightweight, high-quality audio recording tool.</p>
+                    
+                    <div class="legal-links">
+                        <a href="privacy/voice_recorder_privacy_policy.html">Privacy Policy</a>
+                        <a href="term/voice_recorder_term.html">Terms & Conditions</a>
+                    </div>
+                    
+                    <a href="#"><i class="fa-solid fa-share-from-square"></i></a>
+                </div> -->
+
             <div class="portfolio-box">
                 <img src="img/p1.jpg" alt="HR Handicraft">
                 <div class="portfolio-layer">
@@ -176,6 +205,7 @@
                     <i class="fa-solid fa-share-from-square"></i>
                 </div>
             </div>
+
             <div class="portfolio-box">
                 <img src="img/p2.jpg" alt="KSC E-Shop">
                 <div class="portfolio-layer">
@@ -184,6 +214,7 @@
                     <i class="fa-solid fa-share-from-square"></i>
                 </div>
             </div>
+
             <div class="portfolio-box">
                 <img src="img/p3.png" alt="Tic Tac Toe">
                 <div class="portfolio-layer">
@@ -240,11 +271,21 @@
             delay: 200,
         });
 
-        ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-        ScrollReveal().reveal('.home-img, .service-container, .portfolio-box, .contact form, .experience-box', { origin: 'bottom' });
-        ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-        ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+        const sr = ScrollReveal({
+            distance: '60px',
+            duration: 1200,
+            delay: 150,
+            easing: 'cubic-bezier(.25,.46,.45,.94)',
+            reset: false,
+            mobile: true,
+            viewFactor: 0.2,
+            scale: 0.97
+        });
+
+        sr.reveal('.heading, .home-content', { origin: 'top', interval: 100 });
+        sr.reveal('.home-img, .service-container, .portfolio-box, .contact form, .experience-box', { origin: 'bottom', interval: 100 });
+        sr.reveal('.home-content h1, .about-img', { origin: 'left', distance: '80px', interval: 80 });
+        sr.reveal('.home-content p, .about-content', { origin: 'right', distance: '80px', interval: 80 });
     </script>
 </body>
 </html>
-
